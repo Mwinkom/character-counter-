@@ -107,7 +107,7 @@ textarea{
 
 .custom-checkbox input:checked + .checkmark::after {
     content: "✔";
-    font-size: 16px;
+    font-size: 1em;
     color: #12131A;
 }
 

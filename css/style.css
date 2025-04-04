@@ -82,36 +82,34 @@ textarea{
             align-items: center;
             cursor: pointer;
             gap: 8px;
-        }
+}
 
-        .custom-checkbox input {
-            display: none;
-        }
+.custom-checkbox input {
+    display: none;
+}
 
-        .checkmark {
-            width: 8px;
-            height: 8px;
-            padding: 9px;
-            border: 1px solid #E4E4EF;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: 0.3s;
-        }
+.checkmark {
+    width: 8px;
+    height: 8px;
+    padding: 8px;
+    border: 1px solid #E4E4EF;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
 
-        /* Checked state */
-        .custom-checkbox input:checked + .checkmark {
-            background-color: purple;
-            border-color: purple;
-        }
+.custom-checkbox input:checked + .checkmark {
+    background-color: #D3A0FA;
+    border-color: #D3A0FA;
+}
 
-        /* Checkmark */
-        .custom-checkbox input:checked + .checkmark::after {
-            content: "✔";
-            font-size: 16px;
-            color: black;
-        }
+.custom-checkbox input:checked + .checkmark::after {
+    content: "✔";
+    font-size: 16px;
+    color: #12131A;
+}
 
 /* Analytics */
 

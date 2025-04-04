@@ -1,0 +1,89 @@
+@media (min-width: 375px) { 
+    body{
+        padding: 16px 16px 32px;
+      }
+}
+
+@media (min-width: 660px){
+    #analytics{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+    #pattern1{
+        background-position: 240% center; 
+    }
+    #pattern2{
+        background-position: 240% center; 
+    }
+    #pattern3{
+        background-position: 240% center; 
+    }
+}
+
+@media (min-width: 400px) and (max-width: 659px){
+    #pattern1{
+        background-position: 120% center; 
+    }
+    #pattern2{
+        background-position: 120% center; 
+    }
+    #pattern3{
+        background-position: 120% center; 
+    }
+}
+
+
+@media (min-width: 768px)  { 
+    body{
+        padding: 16px 32px 93px;
+      }
+    .heading{
+        font-size: 3rem;
+        padding: 0 25%;
+    }
+    .labels{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .checkboxes{
+        display: flex;
+        flex-direction: row;
+    }
+    #exSpaces{
+        padding-right: 24px;
+    }
+    #analytics{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+    #pattern1{
+        background-position: 120% center; 
+    }
+    #pattern2{
+        background-position: 120% center; 
+    }
+    #pattern3{
+        background-position: 120% center; 
+    }
+    
+}
+
+@media (min-width: 1240px) { 
+    body{
+        padding: 32px 225px 64px;
+      }
+      .heading{
+        font-size: 3rem;
+        padding: 0 25%;
+    }
+    #pattern1{
+        background-position: 120% center; 
+    }
+    #pattern2{
+        background-position: 120% center; 
+    }
+    #pattern3{
+        background-position: 120% center; 
+    }
+}
+

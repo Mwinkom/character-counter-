@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Frontend Mentor | Character counter</title>
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header>
+    <img src="assets/images/logo-dark-theme.svg" alt="character counter logo" style="max-width: 245.53px; max-height: 40px;">
+    <img src="assets/images/icon-sun.svg" alt="character counter logo" class="light_dark_icon">
+  </header>
+  <main>
+      <h1 class="heading">Analyze your text in real-time</h1>
+
+      <textarea name="text" id="text">Design is the silent ambassador of your brand. Simplicity is key to effective communication, creating clarity in every interaction. A great design transforms complex ideas into elegant solutions, making them easy to understand. It blends aesthetics and functionality seamlessly.
+      </textarea>
+
+      <!-- Textarea & Labels -->
+      <!-- <section class="labels">
+        <div class="checkboxes">
+          <div style="padding-bottom: 12px;" id="exSpaces">
+            <input type="checkbox" id="exclude" name="exclude" value="Exclude Spaces">
+            <label for="exclude">Exclude Spaces</label>
+          </div>
+          <div  style="padding-bottom: 12px;">
+            <input type="checkbox" id="setChar" name="setChar" value="Set Character">
+            <label for="setChar"> Set Character Limit</label>
+          </div>
+        </div>
+        <p>Approx. reading time: <1 minute </p>
+      </section> -->
+      <section class="labels">
+        <div class="checkboxes">
+          <label class="custom-checkbox" style="padding-bottom: 12px;" id="exSpaces">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Exclude Spaces
+          </label>
+          
+          <label class="custom-checkbox" style="padding-bottom: 12px;">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Set Character Limit
+          </label>
+        </div>
+
+        <p>Approx. reading time: <1 minute </p>
+      </section>
+
+      <!-- Analytics -->
+      <section id="analytics">
+          <div class="boxpattern" id="pattern1">
+            <span>278</span> <br> Total Characters
+          </div>
+          <div class="boxpattern" id="pattern2">
+            <span>39</span> <br> Word Count
+          </div>
+          <div class="boxpattern" id="pattern3">
+            <span>278</span> <br> Sentence Count
+          </div>
+      </section>
+
+      <!-- Progress bar-->
+      <section class="progress_section">
+        <h4 id="letterDensity">Letter Density</h4>
+
+        <div class="progress-bar-container">
+            <span class="letter">E</span>
+            <div class="progress">
+                <div class="progress-fill" style="width: 40%;"></div>
+            </div>
+            <span class="percentage">40 (16.06%)</span>
+        </div>
+        <div class="progress-bar-container">
+            <span class="letter">I</span>
+            <div class="progress">
+                <div class="progress-fill" style="width: 29%;"></div>
+            </div>
+            <span class="percentage">29 (11.65%)</span>
+        </div>
+        <div class="progress-bar-container">
+            <span class="letter">T</span>
+            <div class="progress">
+                <div class="progress-fill" style="width: 28%;"></div>
+            </div>
+            <span class="percentage">28 (11.24%)</span>
+        </div>
+        <div class="progress-bar-container">
+            <span class="letter">O</span>
+            <div class="progress">
+                <div class="progress-fill" style="width: 22%;"></div>
+            </div>
+            <span class="percentage">22 (8.84%)</span>
+        </div>
+        <div class="progress-bar-container">
+            <span class="letter">N</span>
+            <div class="progress">
+                <div class="progress-fill" style="width: 21%;"></div>
+            </div>
+            <span class="percentage">21 (8.43%)</span>
+        </div>
+            </div>
+      </section>
+
+  </main>
+</body>
+</html>

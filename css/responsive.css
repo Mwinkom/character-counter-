@@ -2,6 +2,9 @@
     body{
         padding: 16px 16px 32px;
       }
+    .custom-checkbox input:checked + .checkmark::after {
+        font-size: 0.9rem;
+    }
 }
 
 @media (min-width: 660px){
@@ -64,6 +67,9 @@
     }
     #pattern3{
         background-position: 120% center; 
+    }
+    .custom-checkbox input:checked + .checkmark::after {
+        font-size: 1rem;
     }
     
 }

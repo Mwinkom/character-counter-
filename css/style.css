@@ -54,7 +54,6 @@ textarea{
     color: #E4E4EF;
     font-family: 'DMSans';
     font-size: 20px;
-    overflow-y: hidden;
 }
 
 .labels{
@@ -107,7 +106,7 @@ textarea{
 
 .custom-checkbox input:checked + .checkmark::after {
     content: "✔";
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: #12131A;
 }
 
@@ -204,6 +203,11 @@ textarea{
     background: #c792ea; /* Light purple color */
     border-radius: 5px;
     transition: width 0.5s ease-in-out;
+}
+
+#see_button{
+    font-weight: 250;
+    margin-top: 8px;
 }
 
 

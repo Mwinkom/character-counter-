@@ -102,12 +102,9 @@ textarea{
 .custom-checkbox input:checked + .checkmark {
     background-color: #D3A0FA;
     border-color: #D3A0FA;
-}
-
-.custom-checkbox input:checked + .checkmark::after {
-    content: "✔";
-    font-size: 0.75em;
-    color: #12131A;
+    background-image: url('../assets/images/icon-check.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Analytics */

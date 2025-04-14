@@ -1,5 +1,5 @@
 @media (min-width: 375px) { 
-    body{
+    body, body.dark-mode, body.light-mode{
         padding: 16px 16px 32px;
       }
 }
@@ -34,7 +34,7 @@
 
 
 @media (min-width: 768px)  { 
-    body{
+    body, body.dark-mode, body.light-mode{
         padding: 16px 32px 93px;
       }
     .heading{
@@ -69,7 +69,7 @@
 }
 
 @media (min-width: 1240px) { 
-    body{
+    body, body.dark-mode, body.light-mode{
         padding: 32px 225px 64px;
       }
       .heading{

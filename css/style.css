@@ -9,7 +9,7 @@
     src: url('../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
 }
 
-body{
+body,body.dark-mode{
     background-image: url('../assets/images/bg-dark-theme.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,12 +20,20 @@ body{
     color: white;
 }
 
+body,body.light-mode{
+    background-color: white;
+    background-image: none;
+    padding: 16px 16px 32px;
+    font-family: 'DMSans', sans-serif;
+    color: black;
+}
+
 header{
     display: flex;
     justify-content: space-between;
 }
 
-.light_dark_icon{
+body.dark-mode .light_dark_icon{
     background-color: #2A2B37;
     border-radius: 8px;
     max-width: 245.53px; 
@@ -33,20 +41,43 @@ header{
     padding: 11px;
 }
 
-.heading{
+
+body.light-mode .light_dark_icon{
+    background-color: #F2F2F7;
+    border-radius: 8px;
+    max-width: 245.53px; 
+    max-height: 40px;
+    padding: 11px;
+}
+
+#mode-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+body.dark-mode .heading{
     text-align: center;
     color: white;
     margin: 40px 0;
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     font-weight: 600;
 }
 
-textarea{
+body.light-mode .heading{
+    text-align: center;
+    color:#12131A;
+    margin: 40px 0;
+    font-size: 2.6rem;
+    font-weight: 750;
+}
+
+body.dark-mode textarea{
     width: 100%;
     height: 200px;
     border-radius: 12px;
     background-color: #21222C;
-    border: 2px solid 2A2B37;
+    border: 2px solid #2A2B37;
     resize: none;
     font-weight: 250;
     text-align: left;
@@ -56,11 +87,57 @@ textarea{
     font-size: 20px;
 }
 
-.labels{
+body.light-mode textarea{
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    background-color: #F2F2F7;
+    border: 2px solid #E4E4EF;
+    resize: none;
+    font-weight: 350;
+    text-align: left;
+    padding: 1.25rem;
+    color: #2A2B37;
+    font-family: 'DMSans';
+    font-size: 20px;
+}
+
+body.dark-mode textarea::placeholder{
+    color: #E4E4EF; 
+}
+
+body.light-mode textarea::placeholder{
+    color: #2A2B37; 
+    font-size: 20px;
+    font-weight: 400;
+}
+
+textarea:hover{
+    cursor: pointer;
+    border: 2px solid #404254;
+}
+
+textarea:focus{
+    background-color: #21222C;
+    outline: none;
+    border: 2px solid #C27CF8;
+    box-shadow: 0 0 10px #C27CF8;
+}
+
+body.dark-mode .labels{
     display: flex;
     flex-direction: column;
     color: #E4E4EF;
-    font-weight: 250;
+    font-weight: 300;
+    font-size: 1rem;
+    margin: 16px 0 40px;
+}
+
+body.light-mode .labels{
+    display: flex;
+    flex-direction: column;
+    color: #12131A;
+    font-weight: 400;
     font-size: 1rem;
     margin: 16px 0 40px;
 }
@@ -83,15 +160,28 @@ textarea{
             gap: 8px;
 }
 
+
 .custom-checkbox input {
     display: none;
 }
 
-.checkmark {
+body.dark-mode .checkmark {
     width: 8px;
     height: 8px;
     padding: 8px;
     border: 1px solid #E4E4EF;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+body.light-mode .checkmark {
+    width: 8px;
+    height: 8px;
+    padding: 8px;
+    border: 1.5px solid #12131A;
     border-radius: 4px;
     display: flex;
     justify-content: center;
@@ -171,20 +261,44 @@ textarea{
     margin-bottom: 12px;
 }
 
-.letter {
+body.dark-mode .letter {
     font-size: 16px;
     font-weight: 250;
     width: 16px;
 }
 
-.percentage{
+body.light-mode .letter {
+    font-size: 16px;
+    font-weight: 350;
+    width: 16px;
+}
+
+body.dark-mode .percentage{
     font-size: 16px;
     font-weight: 250;
     width:87px;
     text-align: right;
 }
 
-.progress {
+body.light-mode .percentage{
+    font-size: 16px;
+    font-weight: 350;
+    width:87px;
+    text-align: right;
+}
+
+body.light-mode .progress {
+    flex: 1;
+    height: 10px;
+    background: #F2F2F7;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 10px;
+    width: 100%;
+}
+
+body.dark-mode .progress {
     flex: 1;
     height: 10px;
     background: #2a2a2d;
@@ -195,6 +309,7 @@ textarea{
     width: 100%;
 }
 
+
 .progress-fill {
     height: 100%;
     background: #c792ea; /* Light purple color */
@@ -202,11 +317,16 @@ textarea{
     transition: width 0.5s ease-in-out;
 }
 
-#see_button{
+body.dark-mode #see_button{
     font-weight: 250;
     margin-top: 8px;
 }
 
+body.light-mode #see_button{
+    font-weight: 450;
+    margin-top: 8px;
+    color: #12131A;
+}
 
 
 

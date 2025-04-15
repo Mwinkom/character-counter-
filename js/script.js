@@ -38,21 +38,18 @@ const sentenceCount = document.getElementById("sentenceCount");
 const excludeSpaces = document.getElementById("exclude-spaces");
 
 
-textarea.addEventListener("input", () => {
+function updateAnalytics(){
   const text = textarea.value;
 
   //Character Count
   const characters = text.length;
-  if (excludeSpaces.checked) {
-    const textWithoutSpaces = text.replace(/\s/g, "");
-    totalCharacters.textContent = String(textWithoutSpaces.length).padStart(2, "0");
-  }
-  else if (excludeSpaces.unchecked){
-    totalCharacters.textContent = String(characters).padStart(2, "0");
-  }
-  else {
-    totalCharacters.textContent = String(characters).padStart(2, "0");
-  }
+    if (excludeSpaces.checked) {
+      const textWithoutSpaces = text.replace(/\s/g, "");
+      totalCharacters.textContent = String(textWithoutSpaces.length).padStart(2, "0");
+    }
+    else {
+      totalCharacters.textContent = String(characters).padStart(2, "0");
+    }
 
   //Word Count
   let wordNumber = 0;
@@ -73,7 +70,10 @@ textarea.addEventListener("input", () => {
     }
   }
   sentenceCount.textContent = String(sentenceNumber).padStart(2, "0");
-});
+};
+
+textarea.addEventListener("input", updateAnalytics);
+excludeSpaces.addEventListener("change", updateAnalytics);
 
 
 

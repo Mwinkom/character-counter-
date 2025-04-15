@@ -17,20 +17,20 @@
   <main>
       <h1 class="heading">Analyze your text in real-time</h1>
 
-      <textarea name="text" id="text" placeholder="Start typing here… (or paste your text)" rows="10" cols="30"></textarea>
+      <textarea id="textarea" name="text" id="text" placeholder="Start typing here… (or paste your text)" rows="10" cols="30"></textarea>
 
       <!-- Textarea & Labels -->
       
       <section class="labels">
         <div class="checkboxes">
           <label class="custom-checkbox" style="padding-bottom: 12px;" id="exSpaces">
-            <input type="checkbox">
+            <input type="checkbox" id="exclude-spaces">
             <span class="checkmark"></span>
             Exclude Spaces
           </label>
           
           <label class="custom-checkbox" style="padding-bottom: 12px;">
-            <input type="checkbox">
+            <input type="checkbox" id="set-limit">
             <span class="checkmark"></span>
             Set Character Limit
           </label>
@@ -42,13 +42,13 @@
       <!-- Analytics -->
       <section id="analytics">
           <div class="boxpattern" id="pattern1">
-            <span>278</span> <br> Total Characters
+            <span id="totalCharacters">00</span> <br> Total Characters
           </div>
           <div class="boxpattern" id="pattern2">
-            <span>39</span> <br> Word Count
+            <span id="wordCount">00</span> <br> Word Count
           </div>
           <div class="boxpattern" id="pattern3">
-            <span>278</span> <br> Sentence Count
+            <span id="sentenceCount">00</span> <br> Sentence Count
           </div>
       </section>
 

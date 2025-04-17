@@ -17,38 +17,43 @@
   <main>
       <h1 class="heading">Analyze your text in real-time</h1>
 
-      <textarea name="text" id="text" placeholder="Start typing here… (or paste your text)" rows="10" cols="30"></textarea>
+      <textarea name="text" id="text-area" class=" textarea" id="text" placeholder="Start typing here… (or paste your text)" rows="10" cols="30"></textarea>
+      <div class="warning-message">
+      </div>
 
       <!-- Textarea & Labels -->
       
       <section class="labels">
         <div class="checkboxes">
           <label class="custom-checkbox" style="padding-bottom: 12px;" id="exSpaces">
-            <input type="checkbox">
+            <input type="checkbox" id="exclude-spaces">
             <span class="checkmark"></span>
             Exclude Spaces
           </label>
           
           <label class="custom-checkbox" style="padding-bottom: 12px;">
-            <input type="checkbox">
+            <input type="checkbox" id="set-limit">
             <span class="checkmark"></span>
-            Set Character Limit
+            <span>Set Character Limit </span>
+            <input type="number" id="char-limit-input">
           </label>
+         
         </div>
 
-        <p>Approx. reading time: <1 minute </p>
+        <p>Approx. reading time:
+        <span class="reading-time">0 minute</span> </p>
       </section>
 
       <!-- Analytics -->
       <section id="analytics">
           <div class="boxpattern" id="pattern1">
-            <span>278</span> <br> Total Characters
+            <span id="totalCharacters">00</span> <br> Total Characters
           </div>
           <div class="boxpattern" id="pattern2">
-            <span>39</span> <br> Word Count
+            <span id="wordCount">00</span> <br> Word Count
           </div>
           <div class="boxpattern" id="pattern3">
-            <span>278</span> <br> Sentence Count
+            <span id="sentenceCount">00</span> <br> Sentence Count
           </div>
       </section>
 
@@ -56,137 +61,22 @@
       <section class="progress_section">
         <h4 id="letterDensity">Letter Density</h4>
 
-        <div class="progress-bar-container">
-            <span class="letter">E</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 40%;"></div>
-            </div>
-            <span class="percentage">40 (16.06%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">I</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 29%;"></div>
-            </div>
-            <span class="percentage">29 (11.65%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">T</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 28%;"></div>
-            </div>
-            <span class="percentage">28 (11.24%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">O</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 22%;"></div>
-            </div>
-            <span class="percentage">22 (8.84%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">N</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 21%;"></div>
-            </div>
-            <span class="percentage">21 (8.43%)</span>
-        </div>
-        <div class="progress-bar-container">
-          <span class="letter">S</span>
-          <div class="progress">
-              <div class="progress-fill" style="width: 20%;"></div>
-          </div>
-          <span class="percentage">20 (8.03%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">C</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 18%;"></div>
-            </div>
-            <span class="percentage">18 (7.22%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">A</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 15%;"></div>
-            </div>
-            <span class="percentage">15 (6.02%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">L</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 14%;"></div>
-            </div>
-            <span class="percentage">14 (5.62%)</span>
-        </div>
-        <div class="progress-bar-container">
-            <span class="letter">D</span>
-            <div class="progress">
-                <div class="progress-fill" style="width: 7%;"></div>
-            </div>
-            <span class="percentage">7 (2.81%)</span>
-        </div>
-        <div class="progress-bar-container">
-          <span class="letter">M</span>
-          <div class="progress">
-              <div class="progress-fill" style="width: 7%;"></div>
-          </div>
-          <span class="percentage">7 (2.81%)</span>
-      </div>
-      <div class="progress-bar-container">
-          <span class="letter">G</span>
-          <div class="progress">
-              <div class="progress-fill" style="width: 7%;"></div>
-          </div>
-          <span class="percentage">7 (2.81%)</span>
-      </div>
-      <div class="progress-bar-container">
-        <span class="letter">H</span>
-        <div class="progress">
-            <div class="progress-fill" style="width: 5%;"></div>
-        </div>
-        <span class="percentage">5 (2.01%)</span>
-      </div>
-      <div class="progress-bar-container">
-        <span class="letter">U</span>
-        <div class="progress">
-            <div class="progress-fill" style="width: 5%;"></div>
-        </div>
-        <span class="percentage">5 (2.01%)</span>
-    </div>
-    <div class="progress-bar-container">
-      <span class="letter">Y</span>
-      <div class="progress">
-          <div class="progress-fill" style="width: 3%;"></div>
-      </div>
-      <span class="percentage">3 (1.20%)</span>
-      </div>
-      <div class="progress-bar-container">
-          <span class="letter">P</span>
-          <div class="progress">
-              <div class="progress-fill" style="width: 2%;"></div>
-          </div>
-          <span class="percentage">2 (0.80%)</span>
-      </div>
-      <div class="progress-bar-container">
-        <span class="letter">V</span>
-        <div class="progress">
-            <div class="progress-fill" style="width: 1%;"></div>
-        </div>
-        <span class="percentage">1 (0.40%)</span>
-      </div>
-      <div class="progress-bar-container">
-        <span class="letter">K</span>
-        <div class="progress">
-            <div class="progress-fill" style="width: 1%;"></div>
-        </div>
-        <span class="percentage">1 (0.40%)</span>
-      </div>
-        <p id="see_button">See less <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="path" d="M6.25 0.65625L10.875 5.21875C11.0312 5.375 11.0312 5.625 10.875 5.75L10.25 6.375C10.125 6.53125 9.875 6.53125 9.71875 6.375L6 2.6875L2.25 6.375C2.09375 6.53125 1.875 6.53125 1.71875 6.375L1.09375 5.75C0.9375 5.625 0.9375 5.375 1.09375 5.21875L5.71875 0.65625C5.875 0.5 6.09375 0.5 6.25 0.65625Z" fill="#E4E4EF"/>
-          </svg>
+        <p id="letter-density-message" class="density-placeholder">
+          No characters found. Start typing to see letter density.
         </p>
+
+        <div class="progress-bar-container template" style="display: none;">
+          <span class="letter">E</span>
+          <div class="progress">
+            <div class="progress-fill"></div>
+          </div>
+          <span class="percentage"></span>
+        </div>
       </section>
+
+      <div class="letter-density-controls">
+        <button id="toggle-bars-btn" style="display: none;">See more</button>
+      </div>
 
   </main>
 

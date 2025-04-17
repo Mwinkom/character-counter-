@@ -9,6 +9,10 @@
     src: url('../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
 }
 
+body {
+    transition: background-color 0.2s ease-in, color 0.2s ease-in font-weight 0.3s ease, letter-spacing 0.3s ease;
+  }
+
 body,body.dark-mode{
     background-image: url('../assets/images/bg-dark-theme.png');
     background-repeat: no-repeat;
@@ -72,7 +76,7 @@ body.light-mode .heading{
     font-weight: 750;
 }
 
-body.dark-mode textarea{
+body.dark-mode #text-area{
     width: 100%;
     height: 200px;
     border-radius: 12px;
@@ -87,7 +91,7 @@ body.dark-mode textarea{
     font-size: 20px;
 }
 
-body.light-mode textarea{
+body.light-mode #text-area{
     width: 100%;
     height: 200px;
     border-radius: 12px;
@@ -102,26 +106,79 @@ body.light-mode textarea{
     font-size: 20px;
 }
 
-body.dark-mode textarea::placeholder{
+body.dark-mode #text-area::placeholder{
     color: #E4E4EF; 
 }
 
-body.light-mode textarea::placeholder{
+body.light-mode #text-area::placeholder{
     color: #2A2B37; 
     font-size: 20px;
     font-weight: 400;
 }
 
-textarea:hover{
+body.dark-mode .textarea:hover{
     cursor: pointer;
     border: 2px solid #404254;
 }
 
-textarea:focus{
+body.light-mode .textarea:hover{
+    cursor: pointer;
+    border: 2px solid #E4E4EF;
+    background-color: #E4E4EF;
+}
+
+body.dark-mode .textarea:focus{
     background-color: #21222C;
     outline: none;
     border: 2px solid #C27CF8;
     box-shadow: 0 0 10px #C27CF8;
+}
+
+body.light-mode .textarea:focus{
+    background-color: #E4E4EF;
+    outline: none;
+    border: 2px solid #C27CF8;
+    box-shadow: 0 0 10px #C27CF8;
+}
+
+body.dark-mode .warning-border{
+    border: 1px solid #FF8159;
+    box-shadow: 0 0 8px #FF8159;
+}
+
+body.light-mode .warning-border{
+    border: 1px solid #DA3701;
+    box-shadow: 0 0 8px #DA3701;
+}
+
+body.dark-mode .warning-message{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #FF8159;
+    font-size: 16px;
+    font-weight: 200;
+    margin: 12px 0 16px 0;
+}
+
+body.light-mode textarea.no-focus:focus {
+    border: 1px solid #DA3701;
+    box-shadow: 0 0 8px #DA3701;
+}
+
+body.dark-mode textarea.no-focus:focus {
+    border: 1px solid #FF8159;
+    box-shadow: 0 0 8px #FF8159;
+}
+
+body.light-mode .warning-message{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #DA3701;
+    font-size: 16px;
+    font-weight: 200;
+    margin: 12px 0 16px 0;
 }
 
 body.dark-mode .labels{
@@ -161,7 +218,7 @@ body.light-mode .labels{
 }
 
 
-.custom-checkbox input {
+.custom-checkbox #exclude-spaces, .custom-checkbox #set-limit{ 
     display: none;
 }
 
@@ -196,6 +253,54 @@ body.light-mode .checkmark {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+body.dark-mode #char-limit-input {
+    background-color: transparent;
+    display: none;
+    color: white;
+    padding: 4px 12px;
+    margin-left: 5px;
+    border: 1px solid #404254;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'DMSans', Courier, monospace;
+    font-weight: 250;
+    outline: none;
+    width: 60px;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+body.light-mode #char-limit-input {
+    background-color: transparent;
+    display: none;
+    color: #12131A;
+    padding: 4px 12px;
+    margin-left: 5px;
+    border: 1px solid #E4E4EF;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'DMSans', Courier, monospace;
+    font-weight: 350;
+    outline: none;
+    width: 60px;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+#char-limit-input::-webkit-outer-spin-button,
+#char-limit-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#char-limit-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+  
 
 /* Analytics */
 
@@ -243,6 +348,16 @@ body.light-mode .checkmark {
 }
 
 /* Progress Bar */
+body.light-mode .density-placeholder{
+    color: #404254;
+    font-weight: 350;
+}
+
+body.dark-mode .density-placeholder{
+    color: #E4E4EF;
+    font-weight: 250;
+}
+
 #letterDensity{
     margin: 24px 0 20px;
     font-size: 24px;
@@ -317,15 +432,26 @@ body.dark-mode .progress {
     transition: width 0.5s ease-in-out;
 }
 
-body.dark-mode #see_button{
+body.dark-mode #toggle-bars-btn{
     font-weight: 250;
+    font-family: 'DMSans', sans-serif;
     margin-top: 8px;
+    background-color: transparent;
+    border: none;
+    color: #E4E4EF;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-body.light-mode #see_button{
-    font-weight: 450;
+body.light-mode #toggle-bars-btn{
+    font-weight: 350;
+    font-family: 'DMSans', sans-serif;
     margin-top: 8px;
     color: #12131A;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 

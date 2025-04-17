@@ -41,7 +41,7 @@
         font-size: 3rem;
         padding: 0 25%;
     }
-    .labels{
+    body.dark-mode, body.light-mode, .labels{
         flex-direction: row;
         justify-content: space-between;
     }

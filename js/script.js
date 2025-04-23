@@ -53,75 +53,44 @@ generateLetterBars();
 function updateAnalytics() {
   const text = textarea.value;
   const includeSpaces = !excludeSpaces.checked;
-  const currentCharCount = includeSpaces ? text.length : text.replace(/\s/g, "").length;
 
+  const currentCharCount = getCharacterCount(text, includeSpaces);
   totalCharacters.textContent = String(currentCharCount).padStart(2, "0");
 
-  // Personalized Word Count
-  let wordNumber = 0;
-  let words = text.trim().split(" ");
-  for (let word of words) {
-    if (word !== "") {
-      wordNumber++;
-    }
-  }
+  const wordNumber = getWordCount(text);
   wordCount.textContent = String(wordNumber).padStart(2, "0");
 
-  // Personalized Sentence Count
-  let sentences = text.split(/[.!?]/);
-  let sentenceNumber = 0;
-  for (let sentence of sentences) {
-    if (sentence.trim() !== "") {
-      sentenceNumber++;
-    }
-  }
+  const sentenceNumber = getSentenceCount(text);
   sentenceCount.textContent = String(sentenceNumber).padStart(2, "0");
 
-  // Reading Time
-  const readingTime = Math.ceil(currentCharCount / 200);
-  const readingTimeDisplay = document.querySelector(".reading-time");
+  const readingTimeText = getReadingTime(currentCharCount);
+  document.querySelector(".reading-time").textContent = readingTimeText;
 
-  if (currentCharCount < 200 && currentCharCount >= 1) {
-    readingTimeDisplay.textContent = "<1 minute";
-  } else if (readingTime === 1) {
-    readingTimeDisplay.textContent = "1 minute";
-  } else {
-    readingTimeDisplay.textContent = `${readingTime} minutes`;
-  }
-
-  // Character Limit Logic
+  // Character Limit logic (unchanged)
   characterLimitInput.style.display = setCharacterLimit.checked ? "inline-block" : "none";
-
   if (setCharacterLimit.checked && characterLimitInput.value !== "") {
     const limit = parseInt(characterLimitInput.value);
-  
+
     if (!isNaN(limit) && currentCharCount >= limit) {
-      textarea.classList.add("warning-border");
-      textarea.classList.add("no-focus"); // disable focus styles
-  
+      textarea.classList.add("warning-border", "no-focus");
       warningBox.innerHTML = `
-        <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+        <svg width="14" height="15" viewBox="0 0 14 15" ... >
         <path d="..." fill="#FE8159"/>
-        </svg> 
+        </svg>
         <p>Limit reached! Your text exceeds ${limit} characters</p>
       `;
     } else {
-      textarea.classList.remove("warning-border");
-      textarea.classList.remove("no-focus"); // restore focus
+      textarea.classList.remove("warning-border", "no-focus");
       warningBox.innerHTML = "";
     }
-  
   } else {
-    // 🛠 Reset styles when checkbox is not checked
-    textarea.classList.remove("warning-border");
-    textarea.classList.remove("no-focus");
+    textarea.classList.remove("warning-border", "no-focus");
     warningBox.innerHTML = "";
   }
-  
-
 
   updateLetterDensity(text);
 }
+
 
 // Block further typing if limit reached
 textarea.addEventListener("keydown", (e) => {
@@ -216,3 +185,7 @@ characterLimitInput.addEventListener("input", updateAnalytics);
 document.addEventListener("DOMContentLoaded", () => {
   updateAnalytics();
 });
+
+module.exports = {
+  updateAnalytics
+};

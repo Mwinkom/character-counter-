@@ -18,6 +18,7 @@ describe('getCharacterCount', () => {
 
   test('should count characters excluding spaces', () => {
     expect(getCharacterCount("Hello world", false)).toBe(10);
+    expect(getCharacterCount("Hello   world", false)).toBe(10);
   });
 });
 
@@ -26,6 +27,7 @@ describe('getWordCount', () => {
     expect(getWordCount("Hello world")).toBe(2);
     expect(getWordCount("   Hello   world again ")).toBe(3);
     expect(getWordCount("")).toBe(0);
+    expect(getWordCount("   ")).toBe(0);
   });
 });
 

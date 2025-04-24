@@ -108,4 +108,11 @@ describe("updateAnalytics", () => {
 
     expect(warningBox.innerHTML).toBe("");
   });
+
+  test("hides character limit input when checkbox is not checked", () => {
+    setCharacterLimit.checked = false;
+    updateAnalytics();
+    expect(characterLimitInput.style.display).toBe("none");
+  });
+  
 });

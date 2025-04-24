@@ -6,65 +6,68 @@
 
 // This is a mock DOM for testing purposes. It simulates the HTML structure and JavaScript functionality of the original code.
 
-const { getCharacterCount, getWordCount, getSentenceCount, getReadingTime } = require('../js/textAnalytics');
+const {
+  getCharacterCount,
+  getWordCount,
+  getSentenceCount,
+  getReadingTime
+} = require('../js/textAnalytics');
 
-// Mock the DOM structure
-document.body.innerHTML = `
-  <textarea id="textarea"></textarea>
-  <div id="totalCharacters"></div>
-  <div id="wordCount"></div>
-  <div id="sentenceCount"></div>
-  <div class="reading-time"></div>
-  <div class="warning-message"></div>
-  <input type="checkbox" id="set-limit" />
-  <input id="char-limit-input" value="50" />
-`;
+describe("updateAnalytics", () => {
+  let textarea, totalCharacters, wordCount, sentenceCount, readingTimeDisplay, setCharacterLimit, characterLimitInput, warningBox;
 
-// Mock the functions to simulate the behavior of the original code
-const textarea = document.getElementById("textarea");
-const totalCharacters = document.getElementById("totalCharacters");
-const wordCount = document.getElementById("wordCount");
-const sentenceCount = document.getElementById("sentenceCount");
-const readingTimeDisplay = document.querySelector(".reading-time");
-const setCharacterLimit = document.getElementById("set-limit");
-const characterLimitInput = document.getElementById("char-limit-input");
-const warningBox = document.querySelector(".warning-message");
+  // Mock the DOM structure before each test
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <textarea id="textarea"></textarea>
+      <div id="totalCharacters"></div>
+      <div id="wordCount"></div>
+      <div id="sentenceCount"></div>
+      <div class="reading-time"></div>
+      <div class="warning-message"></div>
+      <input type="checkbox" id="set-limit" />
+      <input id="char-limit-input" value="50" />
+    `;
 
-function updateAnalytics() {
-  const text = textarea.value;
-  const currentCharCount = getCharacterCount(text);
-  const currentWordCount = getWordCount(text);
-  const currentSentenceCount = getSentenceCount(text);
-  const readingTime = getReadingTime(currentCharCount);
+    // Mock the functions to simulate the behavior of the original code
+    textarea = document.getElementById("textarea");
+    totalCharacters = document.getElementById("totalCharacters");
+    wordCount = document.getElementById("wordCount");
+    sentenceCount = document.getElementById("sentenceCount");
+    readingTimeDisplay = document.querySelector(".reading-time");
+    setCharacterLimit = document.getElementById("set-limit");
+    characterLimitInput = document.getElementById("char-limit-input");
+    warningBox = document.querySelector(".warning-message");
+  });
 
-  totalCharacters.textContent = currentCharCount.toString().padStart(2, "0");
-  wordCount.textContent = currentWordCount.toString().padStart(2, "0");
-  sentenceCount.textContent = currentSentenceCount.toString().padStart(2, "0");
-  readingTimeDisplay.textContent = readingTime;
+  function updateAnalytics() {
+    const text = textarea.value;
+    const currentCharCount = getCharacterCount(text);
+    const currentWordCount = getWordCount(text);
+    const currentSentenceCount = getSentenceCount(text);
+    const readingTime = getReadingTime(currentCharCount);
 
-  // Limit logic
-  characterLimitInput.style.display = setCharacterLimit.checked ? "inline-block" : "none";
+    totalCharacters.textContent = currentCharCount.toString().padStart(2, "0");
+    wordCount.textContent = currentWordCount.toString().padStart(2, "0");
+    sentenceCount.textContent = currentSentenceCount.toString().padStart(2, "0");
+    readingTimeDisplay.textContent = readingTime;
 
-  if (setCharacterLimit.checked && characterLimitInput.value !== "") {
-    const limit = parseInt(characterLimitInput.value);
-    if (!isNaN(limit) && currentCharCount >= limit) {
-      warningBox.innerHTML = `<p>Limit reached! Your text exceeds ${limit} characters</p>`;
+    // Limit logic
+    characterLimitInput.style.display = setCharacterLimit.checked ? "inline-block" : "none";
+
+    if (setCharacterLimit.checked && characterLimitInput.value !== "") {
+      const limit = parseInt(characterLimitInput.value);
+      if (!isNaN(limit) && currentCharCount >= limit) {
+        warningBox.innerHTML = `<p>Limit reached! Your text exceeds ${limit} characters</p>`;
+      } else {
+        warningBox.innerHTML = "";
+      }
     } else {
       warningBox.innerHTML = "";
     }
-  } else {
-    warningBox.innerHTML = "";
   }
-}
 
-//Test cases for the updateAnalytics function
-describe("updateAnalytics", () => {
-  beforeEach(() => {
-    textarea.value = "";
-    setCharacterLimit.checked = false;
-    warningBox.innerHTML = "";
-  });
-
+  //Test cases for the updateAnalytics function
   test("updates character, word, and sentence counts", () => {
     textarea.value = "Hello world. This is Mildred!";
     updateAnalytics();
@@ -79,7 +82,6 @@ describe("updateAnalytics", () => {
     updateAnalytics();
 
     expect(readingTimeDisplay.textContent).toBe("2 minutes");
-
   });
 
   test("shows reading time properly for under 200 characters", () => {
@@ -87,7 +89,7 @@ describe("updateAnalytics", () => {
     updateAnalytics();
 
     expect(readingTimeDisplay.textContent).toBe("<1 minute");
-  })
+  });
 
   test("shows warning when limit is reached", () => {
     setCharacterLimit.checked = true;

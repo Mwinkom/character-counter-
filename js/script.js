@@ -37,17 +37,23 @@ const progressSection = document.querySelector(".progress_section");
 const templateBar = document.querySelector(".progress-bar-container.template");
 
 function generateLetterBars() {
+  // Loop through ASCII codes for uppercase A-Z (65 to 90)
   for (let i = 65; i <= 90; i++) {
-    const letter = String.fromCharCode(i);
-    const clone = templateBar.cloneNode(true);
-    clone.classList.remove("template");
-    clone.style.display = "none";
-    clone.setAttribute("data-letter", letter);
-    clone.querySelector(".letter").textContent = letter;
-    progressSection.appendChild(clone);
+    const letter = String.fromCharCode(i); // Convert ASCII code to letter (eg. 65 = "A")
+
+    const clone = templateBar.cloneNode(true); // Clone the hidden template bar structure
+    clone.classList.remove("template"); // Remove the 'template' class so it becomes visible/active
+    clone.style.display = "none"; // Hide the cloned bar initially
+
+    clone.setAttribute("data-letter", letter); // Add data-letter attribute to identify the bar by letter
+    clone.querySelector(".letter").textContent = letter; // Set the visible label inside the bar to the letter
+
+    progressSection.appendChild(clone); // Add the configured bar to the DOM inside the progress section
   }
 }
-generateLetterBars();
+
+generateLetterBars(); 
+
 
 // MAIN ANALYTICS FUNCTION
 function updateAnalytics() {
@@ -66,7 +72,7 @@ function updateAnalytics() {
   const readingTimeText = getReadingTime(currentCharCount);
   document.querySelector(".reading-time").textContent = readingTimeText;
 
-  // Character Limit logic (unchanged)
+  // Character Limit logic
   characterLimitInput.style.display = setCharacterLimit.checked ? "inline-block" : "none";
   if (setCharacterLimit.checked && characterLimitInput.value !== "") {
     const limit = parseInt(characterLimitInput.value);
@@ -146,6 +152,7 @@ function updateLetterDensity(text) {
     bar.style.display = "none"; // hide all first
   });
 
+  //SEE MORE/LESS BUTTON
   if (validBars.length <= 5 || isExpanded) {
     validBars.forEach(bar => (bar.style.display = "flex"));
     toggleButton.style.display = validBars.length <= 5 ? "none" : "inline-block";
